@@ -139,23 +139,31 @@ st.markdown("""
         padding: 12px;
     }
 
-    /* Tab bar */
+    /* Tab bar - Updated for better spacing and clarity */
     .stTabs [data-baseweb="tab-list"] {
         background: #161822;
         border-radius: 10px;
-        padding: 4px;
-        gap: 4px;
+        padding: 6px;
+        gap: 16px; /* Increased spacing between buttons */
         border: 0.5px solid #2a2d3e;
     }
     .stTabs [data-baseweb="tab"] {
         background: transparent;
         color: #64748b;
         border-radius: 7px;
-        font-size: 13px;
+        font-size: 14px;
+        padding: 8px 16px; /* Horizontal padding for better look */
+        transition: all 0.2s ease;
+    }
+    /* Hover effect for tabs */
+    .stTabs [data-baseweb="tab"]:hover {
+        color: #e2e8f0;
+        background: rgba(167, 139, 250, 0.05);
     }
     .stTabs [aria-selected="true"] {
         background: #1e2130 !important;
         color: #e2e8f0 !important;
+        border: 0.5px solid #2a2d3e !important;
     }
     .stTabs [data-baseweb="tab-border"] { display: none; }
 
@@ -187,7 +195,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Page routing ─────────────────────────────────────────────────────────────
-tab1, tab2, tab3, tab4 = st.tabs(["  Upload  ", "  Dashboard  ", "  My Story  ", "  Insights  "])
+# Removed manual spaces as the CSS gap and padding now handle it perfectly
+tab1, tab2, tab3, tab4 = st.tabs(["Upload", "Dashboard", "My Story", "Insights"])
 
 with tab1:
     from pages.upload import render
